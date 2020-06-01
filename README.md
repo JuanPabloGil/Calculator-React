@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Live Preview
+
+You can visit the live version of the site on this [link](https://calculator-react-jpmgil23.herokuapp.com/)
+
 ## Available Scripts
 
 In the project directory, you can run:
