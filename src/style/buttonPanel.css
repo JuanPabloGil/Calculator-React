@@ -1,0 +1,10 @@
+.ButtonPanel {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .ButtonPanel > div {
+    width: 100%;
+    display: flex;
+  }
