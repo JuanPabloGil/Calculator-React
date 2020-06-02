@@ -1,0 +1,16 @@
+button {
+    height: 100px;
+    width: 175px;
+    color: black;
+    border: 1px #d1d1d1 solid;
+    font-size: 20px;
+}
+
+.button-big{
+    width: 350px;
+}
+
+.button-orange {
+    background-color: #f5913e;
+    color: white;
+}
