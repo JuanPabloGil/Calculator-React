@@ -3,21 +3,25 @@ import PropTypes from 'prop-types';
 import '../style/button.css';
 
 
-const Button = ({ name, styleClass }) => (
+export default class Button extends React.Component {
+  static propTypes = {
+    name: PropTypes.string,
+    orange: PropTypes.bool,
+    wide: PropTypes.bool,
+  };
 
-  <div className="component-display">
-    <button className={styleClass} type="button">{name}</button>
-  </div>
-);
 
+  render() {
+    const className = [
+      "component-button",
+      this.props.orange ? "orange" : "",
+      this.props.wide ? "wide" : "",
+    ];
 
-Button.propTypes = {
-  name: PropTypes.string,
-  styleClass: PropTypes.string,
-};
-Button.defaultProps = {
-  name: 'n/a',
-  styleClass: '',
-};
-
-export default Button;
+    return (
+      <div className={className.join(" ").trim()}>
+        <button >{this.props.name}</button>
+      </div>
+    );
+  }
+}
