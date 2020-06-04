@@ -5,7 +5,7 @@ const operate = (numberOne, numberTwo, operation) => {
   const num2 = Big(numberTwo);
 
   if (operation === '+') {
-    return num1.plus(num2).toString(); 
+    return num1.plus(num2).toString();
   }
   if (operation === '-') {
     return num1.minus(num2).toString();

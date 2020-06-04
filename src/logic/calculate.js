@@ -7,7 +7,7 @@ const calculate = (dataObject, buttonName) => {
 
   if (buttonName === 'AC') {
     total = null;
-    next = null; 
+    next = null;
     operation = null;
   } else if (buttonName === '+/-') {
     if (total) {
