@@ -24,5 +24,4 @@ yarn-error.log*
 
 #Optional Service Worker 
 src/serviceWorker.js
-src/logic
-src/tests/logic.test.js
+
