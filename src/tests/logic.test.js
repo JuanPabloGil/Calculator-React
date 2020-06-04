@@ -52,4 +52,3 @@ test('Divide two floats', () => {
 test('Divide one zero and a number', () => {
   expect(operate(0, -2, '÷')).toBe('0');
 });
-
