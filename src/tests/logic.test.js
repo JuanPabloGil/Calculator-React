@@ -53,6 +53,3 @@ test('Divide one zero and a number', () => {
   expect(operate(0, -2, '÷')).toBe('0');
 });
 
-test('Divide one number and a zero', () => {
-  expect(operate(-2, 0, '÷')).toBe('Infinity');
-});

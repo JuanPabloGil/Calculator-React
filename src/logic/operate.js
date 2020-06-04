@@ -1,4 +1,4 @@
-let Big = require('big.js');
+const Big = require('big.js');
 
 const operate = (numberOne, numberTwo, operation) => {
   const num1 = Big(numberOne);
@@ -14,7 +14,7 @@ const operate = (numberOne, numberTwo, operation) => {
     return num1.times(num2).toString();
   }
   if (operation === '÷') {
-    if (num2 == '0') {
+    if (num2 === '0') {
       return 'Infinity';
     }
     return num1.div(num2).toString();
