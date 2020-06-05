@@ -19,7 +19,11 @@ const calculate = (dataObject, buttonName) => {
   }
 
   if (isNumber(buttonName)) {
-    total ? total += buttonName : total = buttonName;
+    if (total) {
+      (total += buttonName);
+    } else {
+      (total = buttonName);
+    }
   }
 
   if (buttonName === '+/-') {
@@ -33,8 +37,7 @@ const calculate = (dataObject, buttonName) => {
   if (buttonName === '.') {
     if (!total) {
       total = '0.';
-    } else if (total.includes('.')) {
-    } else {
+    } else if (!total.includes('.')) {
       total += '.';
     }
   }
