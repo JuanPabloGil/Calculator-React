@@ -1,40 +1,80 @@
 import operate from './operate';
+import isNumber from './isNumber';
 
 const calculate = (dataObject, buttonName) => {
   let {
     total, next, operation,
   } = dataObject;
 
+  if (buttonName === '0') {
+    if (total) {
+      total += '0';
+    }
+  }
+
   if (buttonName === 'AC') {
     total = null;
     next = null;
     operation = null;
-  } else if (buttonName === '+/-') {
-    if (total) {
-      total *= -1;
-    }
-    if (next) {
-      next *= -1;
-    }
-    if (next && !next.includes('.')) {
-      next += '.';
-    } else if (operation && !next) {
-      next = '0.';
-    } else if (total && !total.includes('.')) {
+  }
+
+  if (isNumber(buttonName)) {
+    total ? total += buttonName : total = buttonName;
+  }
+
+  if (buttonName === '+/-') {
+    total *= -1;
+  }
+
+  if (buttonName === '%') {
+    total /= 100;
+  }
+
+  if (buttonName === '.') {
+    if (!total) {
+      total = '0.';
+    } else if (total.includes('.')) {
+    } else {
       total += '.';
     }
-  } else if (buttonName === '=') {
-    if (next && operation) {
-      total = operate(total, next, operation);
+  }
+
+  if (buttonName === '=') {
+    if (total && next && operation) {
+      total = operate(next, total, operation);
       next = null;
       operation = null;
     }
-  } else if (next && operation) {
-    total = operate(total, next, operation);
-    next = null;
-    operation = buttonName;
-  } else {
-    operation = buttonName;
+  }
+
+  if (buttonName === '+') {
+    if (total && next && operation) {
+      operation = '+';
+    } else if (total) {
+      next = total;
+      operation = '+';
+      total = 0;
+    }
+  }
+
+  if (buttonName === '-') {
+    if (total && next && operation) {
+      operation = '-';
+    } else if (total) {
+      next = total;
+      operation = '-';
+      total = 0;
+    }
+  }
+
+  if (buttonName === 'X') {
+    if (total && next && operation) {
+      operation = 'X';
+    } else if (total) {
+      next = total;
+      operation = 'X';
+      total = 0;
+    }
   }
 
   return {
