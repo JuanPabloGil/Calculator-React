@@ -1,14 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from './button';
-import PropTypes from "prop-types";
 import '../style/buttonPanel.css';
 
 class ButtonPanel extends React.Component {
-  clickHandler = (buttonName) => {
+  clickHandler = buttonName => {
     this.props.clickHandler(buttonName);
   }
+
   render() {
-    return(
+    return (
       <div className="component-button-panel">
         <div>
           <Button name="AC" clickHandler={this.clickHandler} />
@@ -40,9 +41,9 @@ class ButtonPanel extends React.Component {
           <Button name="=" clickHandler={this.clickHandler} orange />
         </div>
       </div>
-    )
+    );
   }
-};
+}
 ButtonPanel.propTypes = {
   clickHandler: PropTypes.func,
 };
