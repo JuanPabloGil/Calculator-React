@@ -6,6 +6,7 @@ const calculate = (dataObject, buttonName) => {
     total, next, operation,
   } = dataObject;
 
+
   if (buttonName === '0') {
     if (total) {
       total += '0';
@@ -60,6 +61,15 @@ const calculate = (dataObject, buttonName) => {
     }
   }
 
+  if (buttonName === '÷') {
+    if (total && next && operation) {
+      operation = '÷';
+    } else if (total) {
+      next = total;
+      operation = '÷';
+      total = 0;
+    }
+  }
   if (buttonName === '-') {
     if (total && next && operation) {
       operation = '-';
