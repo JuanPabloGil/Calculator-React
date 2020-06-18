@@ -2,35 +2,33 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../style/button.css';
 
-class Button extends React.Component {
-  constructor(prop) {
-    super(prop);
-    Button.propTypes = {
-      name: PropTypes.string,
-      orange: PropTypes.bool,
-      wide: PropTypes.bool,
-    };
-    Button.defaultProps = {
-      name: 'n/a',
-      orange: true,
-      wide: false,
-    };
-  }
+const Button = ({
+  name, orange, wide, handleClick,
+}) => {
+  const className = [
+    'component-button',
+    orange ? 'orange' : '',
+    wide ? 'wide' : '',
+  ];
+  return (
+    <div className={className.join(' ').trim()}>
+      <button type="button" onClick={() => handleClick(name)}>{name}</button>
+    </div>
+  );
+};
 
-  render() {
-    const properties = this.props;
-    const className = [
-      'component-button',
-      properties.orange ? 'orange' : '',
-      properties.wide ? 'wide' : '',
-    ];
 
-    return (
-      <div className={className.join(' ').trim()}>
-        <button type="button">{properties.name}</button>
-      </div>
-    );
-  }
-}
+Button.propTypes = {
+  name: PropTypes.string.isRequired,
+  orange: PropTypes.bool,
+  wide: PropTypes.bool,
+  handleClick: PropTypes.func,
+};
+
+Button.defaultProps = {
+  orange: false,
+  wide: false,
+  handleClick: e => e.target,
+};
 
 export default Button;
